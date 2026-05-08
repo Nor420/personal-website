@@ -1,0 +1,8 @@
+name: CI check
+
+on:
+  push:
+    branchs:[main]
+  push_request:
+    branchs: [main]
+
