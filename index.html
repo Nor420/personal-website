@@ -5,6 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ron Mabulay | Personal Website</title>
   <link rel="stylesheet" href="styles.css" />
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+    import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyD-example-api-key", // Replace with your actual API key
+      authDomain: "personal-website-ron-9f777.firebaseapp.com",
+      projectId: "personal-website-ron-9f777",
+      storageBucket: "personal-website-ron-9f777.appspot.com",
+      messagingSenderId: "123456789", // Replace with your actual sender ID
+      appId: "1:123456789:web:abcdef123456" // Replace with your actual app ID
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Make db available globally
+    window.db = db;
+    window.addDoc = addDoc;
+    window.collection = collection;
+  </script>
 </head>
 <body>
 
@@ -85,34 +109,92 @@
   </div>
 </section>
 
-  <section id="contact">
+<section id="contact" class="contact-section">
   <h2>Contact</h2>
-  <div class="contact-box">
-    
-    <p><strong>Email:</strong> 
-      <a href="mailto:mabulayron420@gmail.com">
-        mabulayron420@gmail.com
-      </a>
-    </p>
+  <div class="section-line"></div>
 
-    <p><strong>LinkedIn:</strong> 
-      <a href="https://www.linkedin.com/in/ronronmabulay/" target="_blank">
-        linkedin.com/in/ronronmabulay
-      </a>
-    </p>
+  <div class="contact-container">
+    <div class="contact-info">
+      <h3>Get In Touch</h3>
+      <p>I'm always interested in new opportunities, collaborations, or technology discussions.</p>
 
-    <p><strong>GitHub:</strong> 
-      <a href="https://github.com/Nor420" target="_blank">
-        github.com/Nor420
-      </a>
-    </p>
+      <div class="contact-item">
+        <div class="contact-icon">✉</div>
+        <div>
+          <h4>Email</h4>
+          <a href="mailto:mabulayron420@gmail.com">mabulayron420@gmail.com</a>
+        </div>
+      </div>
 
+      <div class="contact-item">
+        <div class="contact-icon">in</div>
+        <div>
+          <h4>LinkedIn</h4>
+          <a href="https://www.linkedin.com/in/ronronmabulay/" target="_blank">linkedin.com/in/ronronmabulay</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">GH</div>
+        <div>
+          <h4>GitHub</h4>
+          <a href="https://github.com/Nor420" target="_blank">github.com/Nor420</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h3>Send Message</h3>
+
+      <form id="contactForm">
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" rows="7" placeholder="Tell me about your project, collaboration ideas, or message..." required></textarea>
+
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+
+      <div id="formMessage"></div>
+    </div>
   </div>
 </section>
 
   <footer>
     <p>&copy; 2026 Ron Mabulay. All rights reserved.</p>
   </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      
+      const formMessage = document.getElementById('formMessage');
+      
+      try {
+        // Add message to Firestore
+        const docRef = await window.addDoc(window.collection(window.db, 'messages'), {
+          name: name,
+          email: email,
+          message: message,
+          timestamp: new Date()
+        });
+        
+        formMessage.innerHTML = '<p style="color: green;">Message sent successfully!</p>';
+        document.getElementById('contactForm').reset();
+      } catch (error) {
+        console.error('Error adding document: ', error);
+        formMessage.innerHTML = '<p style="color: red;">Error sending message. Please try again.</p>';
+      }
+    });
+  </script>
 
 </body>
 </html>
