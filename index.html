@@ -111,67 +111,48 @@
 
   <section id="contact">
   <h2>Contact</h2>
-  <div class="contact-container">
-    <div class="contact-info">
-      <h3>Get In Touch</h3>
-      <p>I'm always interested in new opportunities, collaborations, or just having a chat about technology and innovation.</p>
-      
-      <div class="contact-details">
-        <div class="contact-item">
-          <div class="contact-icon">📧</div>
-          <div>
-            <strong>Email</strong><br>
-            <a href="mailto:mabulayron420@gmail.com">mabulayron420@gmail.com</a>
-          </div>
-        </div>
-        
-        <div class="contact-item">
-          <div class="contact-icon">💼</div>
-          <div>
-            <strong>LinkedIn</strong><br>
-            <a href="https://www.linkedin.com/in/ronronmabulay/" target="_blank">linkedin.com/in/ronronmabulay</a>
-          </div>
-        </div>
-        
-        <div class="contact-item">
-          <div class="contact-icon">💻</div>
-          <div>
-            <strong>GitHub</strong><br>
-            <a href="https://github.com/Nor420" target="_blank">github.com/Nor420</a>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="contact-box">
     
-    <div class="contact-form-container">
-      <form id="contactForm">
-        <h3>Send Message</h3>
-        
-        <div class="form-field">
-          <label for="name">Name *</label>
-          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-        </div>
-        
-        <div class="form-field">
-          <label for="email">Email *</label>
-          <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-        </div>
-        
-        <div class="form-field">
-          <label for="message">Message *</label>
-          <textarea id="message" name="message" placeholder="Tell me about your project, collaboration ideas, or just say hello..." required></textarea>
-        </div>
-        
-        <button type="submit" class="submit-btn">
-          <span>Send Message</span>
-          <svg class="send-icon" viewBox="0 0 24 24" width="20" height="20">
-            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-          </svg>
-        </button>
-      </form>
+    <p><strong>Email:</strong> 
+      <a href="mailto:mabulayron420@gmail.com">
+        mabulayron420@gmail.com
+      </a>
+    </p>
+
+    <p><strong>LinkedIn:</strong> 
+      <a href="https://www.linkedin.com/in/ronronmabulay/" target="_blank">
+        linkedin.com/in/ronronmabulay
+      </a>
+    </p>
+
+    <p><strong>GitHub:</strong> 
+      <a href="https://github.com/Nor420" target="_blank">
+        github.com/Nor420
+      </a>
+    </p>
+
+    <h3>📬 Send me a message</h3>
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="name">👤 Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required>
+      </div>
       
-      <div id="formMessage"></div>
-    </div>
+      <div class="form-group">
+        <label for="email">📧 Email:</label>
+        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="message">💬 Message:</label>
+        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project, collaboration ideas, or just say hello!" required></textarea>
+      </div>
+      
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+    
+    <div id="formMessage"></div>
+
   </div>
 </section>
 
