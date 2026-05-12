@@ -45,8 +45,9 @@
   <section class="hero">
     <h2>Hello, I'm Ron</h2>
     <p>IT Engineer | Cloud • Automation • DevOps</p>
-    <a href="#contact" class="btn">Contact Me</a>
-  </section>
+    
+  
+</section>
 
   <section id="about">
     <h2>About Me</h2>
@@ -57,6 +58,7 @@
       </p>
     </div>
   </section> 
+
   <section id="skills">
   <h2>Technical Skills</h2>
 
@@ -109,64 +111,66 @@
   </div>
 </section>
 
-<section id="contact" class="contact-section">
-  <h2>Contact</h2>
-  <div class="section-line"></div>
+ <section class="resume-section">
+  <h2>My Resume</h2>
+  <p>You can download my professional resume below.</p>
 
-  <div class="contact-container">
-    <div class="contact-info">
-      <h3>Get In Touch</h3>
-      <p>I'm always interested in new opportunities, collaborations, or technology discussions.</p>
+  <a href="resume.pdf" download class="resume-btn">
+    Download Resume
+  </a>
+  
+</section>
 
-      <div class="contact-item">
-        <div class="contact-icon">✉</div>
-        <div>
-          <h4>Email</h4>
-          <a href="mailto:mabulayron420@gmail.com">mabulayron420@gmail.com</a>
-        </div>
-      </div>
+  <section id="contact" class="message-wrapper">
+  <div class="message-section">
+    <h2>Contact Me</h2>
 
-      <div class="contact-item">
-        <div class="contact-icon">in</div>
-        <div>
-          <h4>LinkedIn</h4>
-          <a href="https://www.linkedin.com/in/ronronmabulay/" target="_blank">linkedin.com/in/ronronmabulay</a>
-        </div>
-      </div>
+    <p>
+      Feel free to send me a message for collaboration,
+      opportunities, or technical discussions.
+    </p>
 
-      <div class="contact-item">
-        <div class="contact-icon">GH</div>
-        <div>
-          <h4>GitHub</h4>
-          <a href="https://github.com/Nor420" target="_blank">github.com/Nor420</a>
-        </div>
-      </div>
-    </div>
+    <form>
+      <input type="text" placeholder="Your Name" required>
 
-    <div class="contact-form">
-      <h3>Send Message</h3>
+      <input type="email" placeholder="Your Email" required>
 
-      <form id="contactForm">
-        <label for="name">Name *</label>
-        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
 
-        <label for="email">Email *</label>
-        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+      <button type="submit" class="message-btn">
+        Send Message
+      </button>
+    </form>
 
-        <label for="message">Message *</label>
-        <textarea id="message" name="message" rows="7" placeholder="Tell me about your project, collaboration ideas, or message..." required></textarea>
+    
+    <div class="contact-links">
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:mabulayron420@gmail.com">
+          mabulayron420@gmail.com
+        </a>
+      </p>
 
-        <button type="submit" class="btn">Send Message</button>
-      </form>
+      <p>
+        <strong>LinkedIn:</strong>
+        <a href="https://www.linkedin.com/in/ronronmabulay/" target="_blank">
+          linkedin.com/in/ronronmabulay
+        </a>
+      </p>
 
-      <div id="formMessage"></div>
+      <p>
+        <strong>GitHub:</strong>
+        <a href="https://github.com/Nor420" target="_blank">
+          github.com/Nor420
+        </a>
+      </p>
     </div>
   </div>
 </section>
 
-  <footer>
-    <p>&copy; 2026 Ron Mabulay. All rights reserved.</p>
-  </footer>
+<footer>
+  <p>&copy; 2026 Ron Mabulay. All rights reserved.</p>
+</footer>
 
   <script>
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
