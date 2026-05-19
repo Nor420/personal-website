@@ -1,4 +1,5 @@
 name: Website CI check
+
 on:
   push:
     branches:
@@ -15,11 +16,22 @@ jobs:
 
     steps:
       - name: Checkout code
-       uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
-      - name : Checkout code
+      - name: Show all files
         run: |
-        ls -la
-        test -f index.html
-        test -f styles.css
-        
+          ls -la
+          find . -maxdepth 3 -type f
+
+      - name: Check required website files
+        run: |
+          test -f index.html
+          test -f styles.css
+
+      - name: Check HTML file is not empty
+        run: |
+          test -s index.html
+
+      - name: Check CSS file is not empty
+        run: |
+          test -s styles.css
