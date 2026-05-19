@@ -494,3 +494,81 @@ section h2 {
     padding: 30px;
   }
 }
+/* =========================
+   MOBILE CONTACT FORM FIX
+   iPhone + Android
+   ========================= */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 40px 12px;
+  }
+
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    gap: 24px;
+  }
+
+  .contact-info,
+  .contact-form {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .contact-form form {
+    width: 100%;
+  }
+
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form button {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    display: block;
+  }
+
+  .contact-form textarea {
+    resize: vertical;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .contact-item {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .contact-item a {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 430px) {
+  .contact-info,
+  .contact-form {
+    padding: 16px;
+  }
+
+  .contact-section h2 {
+    font-size: 30px;
+  }
+
+  .contact-info h3,
+  .contact-form h3 {
+    font-size: 24px;
+  }
+}
