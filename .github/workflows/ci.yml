@@ -1,0 +1,25 @@
+name: Website CI check
+on:
+  push:
+    branches:
+      - uat
+      - main
+  pull_request:
+    branches:
+      - uat
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+       uses: actions/checkout@v4
+
+      - name : Checkout code
+        run: |
+        ls -la
+        test -f index.html
+        test -f styles.css
+        

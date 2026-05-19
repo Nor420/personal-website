@@ -88,6 +88,27 @@
   </div>
 </section>
 
+<section id="certifications">
+  <h2>Certifications</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>AWS Certified Cloud Practitioner</h3>
+      <p>Amazon Web Services • 2026</p>
+    </div>
+
+    <div class="card">
+      <h3>Desktop IT Support Level 1 & 2</h3>
+      <p>Udemy</p>
+    </div>
+
+    <div class="card">
+      <h3>100 Days of Code: Python Pro Bootcamp</h3>
+      <p>Udemy</p>
+    </div>
+  </div>
+</section>
+
 <section id="projects">
   <h2>Projects</h2>
 
@@ -168,33 +189,52 @@
     <p>&copy; 2026 Ron Mabulay. All rights reserved.</p>
   </footer>
 
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
-      
-      const formMessage = document.getElementById('formMessage');
-      
-      try {
-        // Add message to Firestore
-        const docRef = await window.addDoc(window.collection(window.db, 'messages'), {
-          name: name,
-          email: email,
-          message: message,
-          timestamp: new Date()
-        });
-        
-        formMessage.innerHTML = '<p style="color: green;">Message sent successfully!</p>';
-        document.getElementById('contactForm').reset();
-      } catch (error) {
-        console.error('Error adding document: ', error);
-        formMessage.innerHTML = '<p style="color: red;">Error sending message. Please try again.</p>';
-      }
-    });
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  emailjs.init({
+    publicKey: "ZPor5yWy58GB2iY_z"
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    const formMessage = document.getElementById('formMessage');
+
+    try {
+      // Save message to Firestore
+      await window.addDoc(window.collection(window.db, 'messages'), {
+        name: name,
+        email: email,
+        message: message,
+        timestamp: new Date()
+      });
+
+      // Send message to your email using EmailJS
+      await emailjs.send("service_d5noimc", "template_wewseaa", {
+        from_name: name,
+        reply_email: email,
+        message: message
+      });
+
+      formMessage.innerHTML = '<p style="color: green;">Message sent successfully!</p>';
+document.getElementById('contactForm').reset();
+
+setTimeout(() => {
+  formMessage.innerHTML = '';
+}, 5000);
+    } catch (error) {
+      console.error('Error sending message: ', error);
+      formMessage.innerHTML = '<p style="color: red;">Error sending message. Please try again.</p>';
+    }
+  });
+</script>
 
 </body>
 </html>
