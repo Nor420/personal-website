@@ -1,14 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 const { Firestore } = require("@google-cloud/firestore");
-const { Gmail } = require("@google-cloud/gmail");
+const { google } = require("googleapis");
 
 const app = express();
 const db = new Firestore({
-  projectId: "personal-website-ron-9f777",
-});
-
-const gmail = new Gmail({
   projectId: "personal-website-ron-9f777",
 });
 
@@ -20,7 +16,14 @@ app.get("/", (req, res) => {
 });
 
 async function sendEmail(name, email, message) {
-  const recipient = "mabulayron420@gmail.com";
+  const recipient = "ronmabulay@gmail.com";
+
+  const auth = new google.auth.GoogleAuth({
+    scopes: ["https://www.googleapis.com/auth/gmail.send"],
+  });
+
+  const authClient = await auth.getClient();
+  const gmail = google.gmail({ version: "v1", auth: authClient });
 
   const htmlBody = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
