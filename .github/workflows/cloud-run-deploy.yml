@@ -21,7 +21,7 @@ jobs:
         with:
           credentials_json: ${{ secrets.GCLOUD_AUTH }}
 
-      - uses: google-github-actions/deploy-cloud-run@v2
+      - uses: google-github-actions/deploy-cloudrun@v2
         with:
           region: asia-southeast1
           service: personal-website-backend
