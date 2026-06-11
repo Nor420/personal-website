@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'backend/**'
+      - '.github/workflows/cloud-run-deploy.yml'
 
 jobs:
   deploy:
@@ -16,6 +17,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+    
 
       - uses: google-github-actions/auth@v2
         with:
