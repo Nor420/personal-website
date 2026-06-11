@@ -26,3 +26,6 @@ jobs:
           region: asia-southeast1
           service: personal-website-backend
           source: ./backend
+          env_vars: |
+            SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }}
+            SENDGRID_SENDER_EMAIL=${{ secrets.SENDGRID_SENDER_EMAIL }}
