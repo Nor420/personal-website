@@ -10,6 +10,9 @@ COPY . .
 
 ENV NODE_ENV=production
 ENV PORT=8080
+# Required for SendGrid email:
+# ENV SENDGRID_API_KEY=your_sendgrid_api_key
+# ENV SENDGRID_SENDER_EMAIL=your_verified_sender_email
 
 EXPOSE 8080
 

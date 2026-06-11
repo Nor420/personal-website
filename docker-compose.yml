@@ -15,5 +15,8 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=8080
+      # SendGrid vars - set these in a local .env file for local email testing
+      # - SENDGRID_API_KEY=your_api_key_here
+      # - SENDGRID_SENDER_EMAIL=your_email@gmail.com
     ports:
       - "8080:8080"

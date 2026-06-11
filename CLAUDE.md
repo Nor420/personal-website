@@ -68,16 +68,34 @@ The contact form submits to a backend API endpoint instead of using EmailJS.
 }
 ```
 
-Messages are stored in Firestore collection `contact_messages`.
+**Features**:
+- Validates email format before processing
+- Stores messages in Firestore collection `contact_messages`
+- Sends email notification to `mabulayron420@gmail.com` via SendGrid (if configured)
+
+**Error Responses**:
+- `400`: Missing required fields or invalid email format
+- `500`: Server error
 
 ## Backend API
 
 - **Location**: `backend/index.js`
 - **Runtime**: Node.js with Express
 - **Database**: Google Firestore (project: `personal-website-ron-9f777`)
+- **Email**: SendGrid for notifications
 - **Endpoints**:
   - `GET /` - Health check
   - `POST /api/contact` - Submit contact form
+
+### Environment Variables
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `PORT` | No | Server port (default: 8080) |
+| `SENDGRID_API_KEY` | No | SendGrid API key for email notifications |
+| `SENDGRID_SENDER_EMAIL` | No | Verified sender email (defaults to mabulayron420@gmail.com) |
+
+When `SENDGRID_API_KEY` is set, the backend sends an email notification to `mabulayron420@gmail.com` for each contact form submission.
 
 ## Firebase Configuration
 
