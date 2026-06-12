@@ -142,20 +142,13 @@ section {
 }
 
 section h2 {
-  margin-bottom: 35px;
-  font-size: 38px;
-  color: var(--green-dark);
-}
-
-section h2 {
   margin-bottom: 25px;
   font-size: 34px;
   color: var(--green-dark);
 }
 
-/* ABOUT AND CONTACT */
-.about,
-.contact-box {
+/* ABOUT */
+.about {
   background: rgba(255, 255, 255, 0.92);
   padding: 30px;
   border-radius: 18px;
@@ -164,8 +157,7 @@ section h2 {
   color: var(--text-dark);
 }
 
-.about p,
-.contact-box p {
+.about p {
   color: var(--text-dark);
 }
 
@@ -201,124 +193,10 @@ section h2 {
   color: var(--text-muted);
 }
 
-/* CONTACT */
-.contact-box {
-  text-align: center;
-}
 
-.contact-box p {
-  margin: 10px 0;
-}
-
-.contact-box strong {
-  color: var(--green-dark);
-}
-
-/* ACTION SECTION */
-.action-section {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-
-  gap: 24px;
-
-  max-width: 1000px;
-
-  margin: 0 auto 50px;
-
-  align-items: start;
-}
-
-/* RESUME + MESSAGE CARD */
-.resume-section,
-.message-section {
-  padding: 28px;
-  border-radius: 18px;
-  text-align: center;
-
-  background: #f7fff3;
-  color: var(--text-dark);
-
-  border: 1px solid rgba(139, 188, 104, 0.45);
-  box-shadow: 0 10px 25px rgba(39, 106, 49, 0.12);
-}
-
-
-/* TITLES */
-.resume-section h2,
-.message-section h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: var(--green-dark);
-}
-
-/* TEXT */
-.resume-section p,
-.message-section p {
-  font-size: 15px;
-  margin-bottom: 20px;
-  color: var(--text-muted);
-}
-
-/* FORM */
-.message-section form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.message-section input,
-.message-section textarea {
-  width: 100%;
-  padding: 12px 14px;
-
-  border: 1px solid rgba(139, 188, 104, 0.5);
-  border-radius: 12px;
-
-  background: var(--white);
-  color: var(--text-dark);
-
-  font-size: 14px;
-  outline: none;
-}
-
-.message-section input:focus,
-.message-section textarea:focus {
-  border-color: var(--green-main);
-  box-shadow: 0 0 0 3px rgba(91, 156, 37, 0.15);
-}
-
-/* BUTTONS */
-.resume-btn,
-.message-btn {
-  display: inline-block;
-  padding: 10px 20px;
-
-  background: var(--green-dark);
-  color: var(--white);
-
-  text-decoration: none;
-  border: none;
-  border-radius: 30px;
-
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-
-  transition: 0.3s ease;
-}
-
-.resume-btn:hover,
-.message-btn:hover {
-  background: var(--green-main);
-  transform: translateY(-2px);
-}
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-
-  .action-section {
-    grid-template-columns: 1fr;
-  }
 
   header {
     flex-direction: column;
@@ -359,8 +237,9 @@ section h2 {
 }
 /* CONTACT SECTION */
 .contact-section {
-  padding: 80px 8%;
+  padding: 50px 8%;
   background: #f7fbf4;
+  
 }
 
 .contact-section h2 {
@@ -373,21 +252,21 @@ section h2 {
   width: 70px;
   height: 4px;
   background: var(--green-main);
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   border-radius: 10px;
 }
 
 .contact-container {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 40px;
+  gap: 25px;
   align-items: stretch;
 }
 
 .contact-info,
 .contact-form {
   background: #ffffff;
-  padding: 45px;
+  padding: 30px;
   border-radius: 20px;
   border: 1px solid rgba(139, 188, 104, 0.45);
   box-shadow: 0 15px 35px rgba(39, 106, 49, 0.15);
@@ -402,7 +281,7 @@ section h2 {
 
 .contact-info p {
   color: var(--text-muted);
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .contact-item {
@@ -410,14 +289,14 @@ section h2 {
   align-items: center;
   gap: 20px;
   background: #eef8e9;
-  padding: 22px;
+  padding: 14px;
   border-radius: 14px;
-  margin-bottom: 22px;
+  margin-bottom: 14px;
 }
 
 .contact-icon {
-  width: 55px;
-  height: 55px;
+  width: 40px;
+  height: 40px;
   background: linear-gradient(135deg, var(--green-main), var(--green-dark));
   color: white;
   border-radius: 50%;
