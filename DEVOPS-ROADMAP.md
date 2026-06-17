@@ -139,7 +139,7 @@ Automation & Scripting    → PowerShell, Python, Bash, SQL
 
 | Week | Status | Completed Date | Notes |
 |------|--------|----------------|-------|
-| 1 - Docker + CI | ⬜ Not started | | |
+| 1 - Docker + CI | ✅ Done | June 15, 2026 | Multi-stage Dockerfile, CI push to Artifact Registry |
 | 2 - Kubernetes basics | ✅ Done | June 15, 2026 | Deployed backend to minikube, pod running |
 | 3 - Security scanning | ⬜ Not started | | |
 | 4 - Helm | ⬜ Not started | | |
