@@ -33,38 +33,83 @@
     <div class="about">
       <p>
        I am an IT professional with experience in technical support, cloud infrastructure, automation, access management,
-        and endpoint security, with a growing focus on DevOps and system reliability.
+        and endpoint security. Currently building DevOps skills — CI/CD pipelines, Kubernetes, infrastructure as code,
+        and observability — working towards becoming a DevOps Engineer.
       </p>
     </div>
   </section> 
+
   <section id="skills">
   <h2>Technical Skills</h2>
 
   <div class="grid">
-    <div class="card">
-      <h3>Cloud & Platforms</h3>
-      <p>AWS (IAM, EC2, S3), Azure DevOps, Microsoft 365, Google Cloud</p>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>Cloud & Infrastructure</h3>
+        </div>
+        <div class="flip-card-back">
+          <p>AWS (IAM, EC2, S3),GCP (Cloud Run, Firestore, Artifact Registry),Terraform IaC</p>
+        </div>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>DevOps & CI/CD</h3>
-      <p>Docker, Docker Compose, Git, GitHub, CI/CD Pipelines (GitHub Actions)</p>
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>Containers & Orchestration</h3>
+        </div>
+        <div class="flip-card-back">
+          <p>Docker multi-stage builds, Kubernetes (Deployments, Services), Helm charts, ArgoCD GitOps</p>
+        </div>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Automation & Scripting</h3>
-      <p>PowerShell, Python, SQL, Power Automate</p>
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>CI/CD</h3>
+        </div>
+        <div class="flip-card-back">
+          <p>GitHub Actions pipelines, Docker image build + push, Trivy security scanning, ArgoCD auto-sync</p>
+        </div>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Networking & Security</h3>
-      <p>Fortinet Firewall, DNS, MFA, Endpoint Protection</p>
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>Monitoring & Observability</h3>
+        </div>
+        <div class="flip-card-back">
+          <p>Prometheus metrics endpoint, Grafana dashboards, custom alerts, cluster health monitoring</p>
+        </div>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Operating Systems</h3>
-      <p>Linux , Windows , macOS</p>
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>Security</h3>
+        </div>
+        <div class="flip-card-back">
+          <p>Trivy CVE scanning, Dependabot, non-root containers, Fortinet Firewall, MFA, endpoint protection</p>
+        </div>
+      </div>
     </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>Automation & Scripting</h3>
+        </div>
+        <div class="flip-card-back">
+          <p>PowerShell, Python, SQL, Bash, Power Automate</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -72,19 +117,18 @@
   <h2>Certifications</h2>
 
   <div class="grid">
-    <div class="card">
+    <div class="card cert-card">
+      <a href="https://www.credly.com/badges/867ec530-4e40-441c-ac8f-edd1ec25baa8" target="_blank" rel="noopener noreferrer">
+        <img src="assets/AWS.png" alt="AWS Certified Cloud Practitioner Badge" class="cert-badge" />
+      </a>
       <h3>AWS Certified Cloud Practitioner</h3>
       <p>Amazon Web Services • 2026</p>
     </div>
 
-    <div class="card">
-      <h3>Desktop IT Support Level 1 & 2</h3>
-      <p>Udemy</p>
-    </div>
-
-    <div class="card">
-      <h3>100 Days of Code: Python Pro Bootcamp</h3>
-      <p>Udemy</p>
+    <div class="card cert-card">
+      <h3>🎯 AZ-900</h3>
+      <p>Microsoft Azure Fundamentals</p>
+      <span class="badge-ongoing">In Progress</span>
     </div>
   </div>
 </section>
@@ -94,18 +138,26 @@
 
   <div class="grid">
     <div class="card">
-      <h3>CI/CD Pipeline Project</h3>
-      <p>Created a practice CI/CD pipeline using GitHub Actions, Docker, and Google Cloud for learning DevOps workflows.</p>
+      <h3>Personal Website Infrastructure</h3>
+      <p>Full CI/CD pipeline: GitHub Actions → Docker → Artifact Registry → ArgoCD → Kubernetes. Terraform IaC, Prometheus + Grafana monitoring.</p>
+      <img src="assets/architecture.svg" alt="DevOps Architecture Diagram" class="project-img" style="max-height:200px;object-fit:contain;" />
+    </div>
+
+    <div class="card">
+      <h3>CI/CD Pipeline</h3>
+      <p>Multi-stage Docker builds, Trivy security scanning, automated image push to Artifact Registry with SHA tagging.</p>
+      <img src="assets/argon.png" alt="ArgoCD GitOps dashboard" class="project-img" />
+    </div>
+
+    <div class="card">
+      <h3>Cluster Monitoring</h3>
+      <p>Prometheus metrics collection with custom Grafana dashboards for cluster health and observability.</p>
+      <img src="assets/grafana.png" alt="Grafana monitoring dashboard" class="project-img" />
     </div>
 
     <div class="card">
       <h3>Snipe-IT Asset Management</h3>
       <p>Deployed Snipe-IT from GitHub using Docker for IT asset tracking in a home lab environment.</p>
-    </div>
-
-    <div class="card">
-      <h3>Personal File Server</h3>
-      <p>Set up an Ubuntu-based private cloud file server with shared folders and secure user access.</p>
     </div>
   </div>
 </section>
@@ -175,6 +227,11 @@
     <p>&copy; 2026 Ron Mabulay. All rights reserved.</p>
   </footer>
 
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="this.classList.remove('active')">
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
 
 
 <script><!--  -->
@@ -218,7 +275,18 @@
       formMessage.innerHTML = '<p style="color: red;">Something went wrong. Please try again.</p>';
     }
   });
+  // Lightbox for project images
+  document.querySelectorAll('.project-img').forEach(img => {
+    img.addEventListener('click', () => {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+    });
+  });
 </script>
+
 
 </body>
 </html>

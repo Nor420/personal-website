@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="900" height="420" rx="20" fill="#f7fbf4"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#276A31">DevOps Architecture</text>
+
+  <!-- GitHub -->
+  <rect x="30" y="70" width="130" height="60" rx="12" fill="#276A31"/>
+  <text x="95" y="97" text-anchor="middle" font-size="11" fill="white" font-weight="bold">GitHub</text>
+  <text x="95" y="115" text-anchor="middle" font-size="10" fill="#8CBA44">Push to uat/main</text>
+
+  <!-- Arrow -->
+  <line x1="160" y1="100" x2="200" y2="100" stroke="#5B9C25" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- GitHub Actions -->
+  <rect x="200" y="60" width="150" height="80" rx="12" fill="#ffffff" stroke="#5B9C25" stroke-width="2"/>
+  <text x="275" y="88" text-anchor="middle" font-size="11" font-weight="bold" fill="#276A31">GitHub Actions</text>
+  <text x="275" y="105" text-anchor="middle" font-size="9" fill="#4b5563">Build Docker Image</text>
+  <text x="275" y="118" text-anchor="middle" font-size="9" fill="#4b5563">Trivy Security Scan</text>
+  <text x="275" y="131" text-anchor="middle" font-size="9" fill="#4b5563">Push to Registry</text>
+
+  <!-- Arrow -->
+  <line x1="350" y1="100" x2="390" y2="100" stroke="#5B9C25" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Artifact Registry -->
+  <rect x="390" y="70" width="140" height="60" rx="12" fill="#ffffff" stroke="#5B9C25" stroke-width="2"/>
+  <text x="460" y="95" text-anchor="middle" font-size="11" font-weight="bold" fill="#276A31">Artifact Registry</text>
+  <text x="460" y="112" text-anchor="middle" font-size="9" fill="#4b5563">Docker Images</text>
+
+  <!-- Arrow down to ArgoCD -->
+  <line x1="460" y1="130" x2="460" y2="170" stroke="#5B9C25" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ArgoCD -->
+  <rect x="390" y="170" width="140" height="60" rx="12" fill="#276A31"/>
+  <text x="460" y="195" text-anchor="middle" font-size="11" fill="white" font-weight="bold">ArgoCD</text>
+  <text x="460" y="212" text-anchor="middle" font-size="9" fill="#8CBA44">GitOps Auto-Sync</text>
+
+  <!-- Arrow -->
+  <line x1="530" y1="200" x2="580" y2="200" stroke="#5B9C25" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Kubernetes -->
+  <rect x="580" y="160" width="160" height="80" rx="12" fill="#ffffff" stroke="#5B9C25" stroke-width="2"/>
+  <text x="660" y="188" text-anchor="middle" font-size="11" font-weight="bold" fill="#276A31">Kubernetes (GKE)</text>
+  <text x="660" y="205" text-anchor="middle" font-size="9" fill="#4b5563">Helm Chart Deploy</text>
+  <text x="660" y="218" text-anchor="middle" font-size="9" fill="#4b5563">Pods + Services</text>
+  <text x="660" y="231" text-anchor="middle" font-size="9" fill="#4b5563">Health Checks + HPA</text>
+
+  <!-- Arrow down to Monitoring -->
+  <line x1="660" y1="240" x2="660" y2="280" stroke="#5B9C25" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Monitoring -->
+  <rect x="580" y="280" width="160" height="70" rx="12" fill="#ffffff" stroke="#5B9C25" stroke-width="2"/>
+  <text x="660" y="305" text-anchor="middle" font-size="11" font-weight="bold" fill="#276A31">Monitoring</text>
+  <text x="660" y="322" text-anchor="middle" font-size="9" fill="#4b5563">Prometheus Metrics</text>
+  <text x="660" y="335" text-anchor="middle" font-size="9" fill="#4b5563">Grafana Dashboards</text>
+
+  <!-- Terraform box -->
+  <rect x="30" y="280" width="160" height="70" rx="12" fill="#ffffff" stroke="#5B9C25" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="110" y="305" text-anchor="middle" font-size="11" font-weight="bold" fill="#276A31">Terraform</text>
+  <text x="110" y="322" text-anchor="middle" font-size="9" fill="#4b5563">Infrastructure as Code</text>
+  <text x="110" y="335" text-anchor="middle" font-size="9" fill="#4b5563">Manages all GCP resources</text>
+
+  <!-- Dashed line from Terraform to infra -->
+  <line x1="190" y1="315" x2="580" y2="315" stroke="#5B9C25" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Firebase Hosting -->
+  <rect x="30" y="170" width="140" height="60" rx="12" fill="#ffffff" stroke="#5B9C25" stroke-width="2"/>
+  <text x="100" y="195" text-anchor="middle" font-size="11" font-weight="bold" fill="#276A31">Firebase Hosting</text>
+  <text x="100" y="212" text-anchor="middle" font-size="9" fill="#4b5563">Frontend (HTML/CSS/JS)</text>
+
+  <!-- Arrow from GitHub Actions to Firebase -->
+  <line x1="275" y1="140" x2="275" y2="155" stroke="#5B9C25" stroke-width="1"/>
+  <line x1="275" y1="155" x2="100" y2="155" stroke="#5B9C25" stroke-width="1"/>
+  <line x1="100" y1="155" x2="100" y2="170" stroke="#5B9C25" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Cloud Run (existing prod) -->
+  <rect x="220" y="280" width="140" height="70" rx="12" fill="#ffffff" stroke="#5B9C25" stroke-width="2"/>
+  <text x="290" y="305" text-anchor="middle" font-size="11" font-weight="bold" fill="#276A31">Cloud Run</text>
+  <text x="290" y="322" text-anchor="middle" font-size="9" fill="#4b5563">Backend API (Prod)</text>
+  <text x="290" y="335" text-anchor="middle" font-size="9" fill="#4b5563">Node.js + Express</text>
+
+  <!-- Firestore -->
+  <rect x="220" y="370" width="140" height="40" rx="12" fill="#276A31"/>
+  <text x="290" y="395" text-anchor="middle" font-size="11" fill="white" font-weight="bold">Firestore DB</text>
+
+  <!-- Arrow Cloud Run to Firestore -->
+  <line x1="290" y1="350" x2="290" y2="370" stroke="#5B9C25" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Security badge -->
+  <rect x="750" y="70" width="120" height="70" rx="12" fill="#276A31"/>
+  <text x="810" y="93" text-anchor="middle" font-size="11" fill="white" font-weight="bold">🔒 Security</text>
+  <text x="810" y="110" text-anchor="middle" font-size="9" fill="#8CBA44">Trivy Scanning</text>
+  <text x="810" y="125" text-anchor="middle" font-size="9" fill="#8CBA44">Dependabot</text>
+
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#5B9C25"/>
+    </marker>
+  </defs>
+</svg>

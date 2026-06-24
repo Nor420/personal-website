@@ -4,6 +4,24 @@ const { Firestore } = require("@google-cloud/firestore");
 const sgMail = require("@sendgrid/mail");
 const rateLimit = require("express-rate-limit");
 const xss = require("xss");
+const client = require("prom-client");
+
+// Create metrics
+const httpRequestsTotal = new client.Counter({
+  name: "http_requests_total",
+  help: "Total number of HTTP requests",
+  labelNames: ["method", "route", "status"],
+});
+
+const httpRequestDuration = new client.Histogram({
+  name: "http_request_duration_seconds",
+  help: "Duration of HTTP requests in seconds",
+  labelNames: ["method", "route"],
+  buckets: [0.01, 0.05, 0.1, 0.5, 1, 2, 5],
+});
+
+// Collect default metrics (CPU, memory, etc.)
+client.collectDefaultMetrics();
 
 const app = express();
 
@@ -36,6 +54,17 @@ app.use(cors({
 }));
 
 app.use(express.json());
+
+// Metrics middleware - tracks all requests
+app.use((req, res, next) => {
+  const start = Date.now();
+  res.on("finish", () => {
+    const duration = (Date.now() - start) / 1000;
+    httpRequestsTotal.inc({ method: req.method, route: req.path, status: res.statusCode });
+    httpRequestDuration.observe({ method: req.method, route: req.path }, duration);
+  });
+  next();
+});
 
 // =========================
 // RATE LIMITING
@@ -177,6 +206,14 @@ app.post("/api/contact", async (req, res) => {
       error: "Server error."
     });
   }
+});
+
+// =========================
+// PROMETHEUS METRICS ENDPOINT
+// =========================
+app.get("/metrics", async (req, res) => {
+  res.set("Content-Type", client.register.contentType);
+  res.end(await client.register.metrics());
 });
 
 // =========================

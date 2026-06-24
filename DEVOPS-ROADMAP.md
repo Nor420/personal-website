@@ -141,17 +141,68 @@ Automation & Scripting    → PowerShell, Python, Bash, SQL
 |------|--------|----------------|-------|
 | 1 - Docker + CI | ✅ Done | June 15, 2026 | Multi-stage Dockerfile, CI push to Artifact Registry |
 | 2 - Kubernetes basics | ✅ Done | June 15, 2026 | Deployed backend to minikube, pod running |
-| 3 - Security scanning | ⬜ Not started | | |
-| 4 - Helm | ⬜ Not started | | |
-| 5 - ArgoCD | ⬜ Not started | | |
-| 6 - Terraform | ⬜ Not started | | |
+| 3 - Security scanning | ✅ Done | June 15, 2026 | Trivy in CI pipeline, Dependabot enabled |
+| 4 - Helm | ✅ Done | June 18, 2026 | Chart created, lint passed, helm install/upgrade tested |
+| 5 - ArgoCD | ✅ Done | June 20, 2026 | Installed on minikube, GitOps auto-sync working, UI accessed |
+| 6 - Terraform | ✅ Done | June 22, 2026 | IaC for GCP (Cloud Run, Firestore, Artifact Registry), plan validated |
 | 7 - Monitoring | ⬜ Not started | | |
 | 8 - Website update | ⬜ Not started | | |
 
 ---
 
-## Notes
+## Key Learnings & Notes
+
+### Week 1: Docker + CI
+- Multi-stage builds = smaller images, no build tools in production
+- Non-root user in container = security best practice
+- Tag images with git SHA for traceability (`:sha` + `:latest`)
+- CI pipeline: Build → Scan → Push (scan gates the push)
+
+### Week 2: Kubernetes
+- Pod = your running container
+- Deployment = manages pods (replicas, rolling updates)
+- Service = stable network endpoint for pods
+- `imagePullPolicy: Never` for local images in minikube
+- Key commands: `kubectl get pods`, `kubectl logs`, `kubectl describe`
+
+### Week 3: Security
+- Trivy scans Docker images for CVEs before pushing
+- `exit-code: '1'` = fail the pipeline if vulnerabilities found
+- Dependabot auto-creates PRs for outdated/vulnerable dependencies
+- Three ecosystems: npm, docker, github-actions
+
+### Week 4: Helm
+- Helm = package manager for Kubernetes (like npm for Node)
+- Chart.yaml = metadata (name, version)
+- values.yaml = configurable variables (change here, applies everywhere)
+- templates/ = Kubernetes YAML with `{{ .Values.* }}` placeholders
+- `_helpers.tpl` = reusable snippets (like functions)
+- Key commands: `helm lint`, `helm install`, `helm upgrade`, `helm rollback`, `helm uninstall`
+
+### Week 5: ArgoCD
+- GitOps = git repo is the single source of truth
+- ArgoCD watches your repo and auto-syncs to cluster
+- Self-heal = if someone manually changes something, ArgoCD reverts it
+- Prune = deletes resources removed from git
+- Application YAML points ArgoCD at your Helm chart path
+- UI blocked by corporate TLS policy — use kubectl or try at home
+
+### Week 6: Terraform
+- IaC = Infrastructure as Code — define cloud resources in .tf files
+- `terraform init` = download provider plugins
+- `terraform plan` = preview what would change (safe, read-only)
+- `terraform apply` = actually create/modify resources
+- `terraform destroy` = delete all managed resources
+- `terraform import` = adopt existing resources into state
+- **Key insight:** To recreate the same infra in a new project, just `terraform apply -var="project_id=new-project"` — one command, full infra
+- Don't commit `.terraform/` or `*.tfstate` files (add to .gitignore)
+
+---
+
+## General Notes
 - All learning happens on minikube (FREE, local)
 - GKE only needed if you want a live demo (optional, ~$25-40/month)
 - Keep all configs in your GitHub repo — recruiters will check
+- Minikube pods show ErrImagePull/CrashLoopBackOff because no GCP credentials locally — expected, not a config error
+- Corporate laptop blocks self-signed certs (ArgoCD UI) — use Firefox at home or CLI
 - Update this file as you complete tasks ✅
